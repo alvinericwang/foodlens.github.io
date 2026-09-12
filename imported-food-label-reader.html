@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-itunes-app" content="app-id=6804337307">
+    <title>How to Read an Imported Food Ingredient Label | Ingredio</title>
+    <meta name="description" content="A careful workflow for photographing, structuring, translating, and verifying an imported or multilingual food ingredient label when barcode data is missing.">
+    <link rel="canonical" href="https://alvinericwang.github.io/foodlens.github.io/imported-food-label-reader.html">
+    <meta property="og:title" content="How to Read an Imported Food Ingredient Label">
+    <meta property="og:description" content="Start with the printed ingredient panel, use OCR and translation as reading aids, and verify every result against the original package.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://alvinericwang.github.io/foodlens.github.io/imported-food-label-reader.html">
+    <style>
+        :root { --ink: #17211b; --muted: #56635b; --green: #16794b; --soft: #eef7f1; --line: #dce8df; }
+        * { box-sizing: border-box; }
+        body { margin: 0; color: var(--ink); background: #fbfdfb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.75; }
+        a { color: #0d5735; }
+        .wrap { width: min(760px, calc(100% - 40px)); margin: 0 auto; }
+        nav { padding: 22px 0; }
+        nav a { font-weight: 750; text-decoration: none; }
+        article { padding: 54px 0 70px; }
+        .eyebrow { color: var(--green); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+        h1 { margin: 12px 0 18px; font-size: clamp(38px, 7vw, 62px); line-height: 1.08; letter-spacing: -.035em; }
+        h2 { margin-top: 42px; line-height: 1.2; }
+        .lede { color: var(--muted); font-size: 20px; }
+        .callout { margin: 28px 0; padding: 20px 22px; background: var(--soft); border-left: 4px solid var(--green); border-radius: 8px; }
+        li { margin: 9px 0; }
+        .cta { display: inline-block; margin-top: 20px; padding: 13px 20px; color: white; background: var(--green); border-radius: 11px; font-weight: 700; text-decoration: none; }
+        footer { padding: 28px 0 44px; color: var(--muted); border-top: 1px solid var(--line); font-size: 14px; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to review an imported food ingredient label",
+      "description": "A verification-first workflow for using OCR and translation to review an imported or multilingual ingredient list.",
+      "step": [
+        {"@type":"HowToStep","name":"Find the complete printed ingredient panel","text":"Use the ingredient panel on the current package rather than front-of-package marketing claims."},
+        {"@type":"HowToStep","name":"Capture the original text clearly","text":"Reduce glare and curvature, keep the camera parallel, and include the beginning and end of the list."},
+        {"@type":"HowToStep","name":"Review the recognized text","text":"Check spelling, punctuation, and line breaks against the original package before using a translation."},
+        {"@type":"HowToStep","name":"Treat translation as a reading aid","text":"Keep the original text visible because ingredient names and regional terminology do not always translate one-to-one."},
+        {"@type":"HowToStep","name":"Verify before making a decision","text":"Use the complete current label and manufacturer information whenever accuracy matters."}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="wrap"><nav><a href="./">← Ingredio</a></nav></header>
+    <main class="wrap">
+        <article>
+            <div class="eyebrow">Imported food label guide</div>
+            <h1>Start with the printed label—even when the package is unfamiliar.</h1>
+            <p class="lede">Imported foods, specialty products, and small brands may be missing from barcode databases. A clear photo of the ingredient panel can help you structure the visible text and review unfamiliar terms.</p>
+
+            <h2>A verification-first workflow</h2>
+            <ol>
+                <li><strong>Find the complete printed ingredient panel.</strong> Use the current package rather than relying on front-of-package claims or an older database entry.</li>
+                <li><strong>Capture the original text clearly.</strong> Reduce glare and curvature, keep the camera parallel, and include the beginning and end of the list.</li>
+                <li><strong>Review the recognized text.</strong> Check spelling, punctuation, and line breaks against the package before using a translation or reference.</li>
+                <li><strong>Treat translation as a reading aid.</strong> Keep the original text visible because ingredient names and regional terminology do not always translate one-to-one.</li>
+                <li><strong>Verify before making a decision.</strong> Use the complete current label and manufacturer information whenever accuracy matters.</li>
+            </ol>
+
+            <h2>Where an ingredient scanner can help</h2>
+            <p>Ingredio can start from a photo instead of requiring a barcode. It structures recognized ingredient text, may return ingredient names in your display language, provides plain-language references, and shows visible-text matches from the personal Watchlist you choose.</p>
+
+            <div class="callout"><strong>Recognition varies by label.</strong> Language, script, tiny type, damaged packaging, mixed-language panels, and photo quality can all affect OCR and translation. A translated name is not a substitute for the original package text.</div>
+
+            <h2>What a Watchlist match does not mean</h2>
+            <p>A match means visible label text corresponds to a term you selected. It does not certify that an imported product is safe, authentic, compliant with local rules, free from cross-contact, or suitable for a particular person.</p>
+
+            <h2>Why barcode data may differ from the package</h2>
+            <p>Product databases can be incomplete or outdated, and the same brand may sell different formulations in different markets. Treat barcode data as context and the complete current package label as the source to verify.</p>
+
+            <nav aria-label="Related guides">
+                <h2>Continue reading</h2>
+                <ul>
+                    <li><a href="no-barcode-ingredient-scanner.html">What to do when a barcode lookup has no result</a></li>
+                    <li><a href="ingredient-label-ocr-tips.html">Take a clearer ingredient-label photo</a></li>
+                    <li><a href="ingredient-scanner-faq.html">Review Ingredio’s capabilities and limits</a></li>
+                </ul>
+            </nav>
+
+            <a class="cta" href="https://apps.apple.com/app/id6804337307">View Ingredio on the App Store</a>
+            <p><small>Ingredio is an informational label-reading tool. OCR, translation, and reference data may contain errors; always verify the complete package label.</small></p>
+        </article>
+    </main>
+    <footer class="wrap">
+        <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="mailto:ericopcalvin@outlook.com">Contact</a>
+    </footer>
+</body>
+</html>
