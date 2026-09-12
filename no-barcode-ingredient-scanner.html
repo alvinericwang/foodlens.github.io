@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Barcode Result? Read the Ingredient List Directly | Ingredio</title>
+    <meta name="description" content="A practical guide to reading a packaged-food ingredient list when a barcode scanner has no product result, including photo and OCR verification tips.">
+    <link rel="canonical" href="https://alvinericwang.github.io/foodlens.github.io/no-barcode-ingredient-scanner.html">
+    <style>
+        :root { --ink: #17211b; --muted: #56635b; --green: #16794b; --soft: #eef7f1; --line: #dce8df; }
+        * { box-sizing: border-box; }
+        body { margin: 0; color: var(--ink); background: #fbfdfb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.75; }
+        a { color: #0d5735; }
+        .wrap { width: min(760px, calc(100% - 40px)); margin: 0 auto; }
+        nav { padding: 22px 0; }
+        nav a { font-weight: 750; text-decoration: none; }
+        article { padding: 54px 0 70px; }
+        .eyebrow { color: var(--green); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+        h1 { margin: 12px 0 18px; font-size: clamp(38px, 7vw, 62px); line-height: 1.08; letter-spacing: -.035em; }
+        h2 { margin-top: 42px; line-height: 1.2; }
+        .lede { color: var(--muted); font-size: 20px; }
+        .callout { margin: 28px 0; padding: 20px 22px; background: var(--soft); border-left: 4px solid var(--green); border-radius: 8px; }
+        li { margin: 9px 0; }
+        .cta { display: inline-block; margin-top: 20px; padding: 13px 20px; color: white; background: var(--green); border-radius: 11px; font-weight: 700; text-decoration: none; }
+        footer { padding: 28px 0 44px; color: var(--muted); border-top: 1px solid var(--line); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header class="wrap"><nav><a href="./">← Ingredio</a></nav></header>
+    <main class="wrap">
+        <article>
+            <div class="eyebrow">Practical label-reading guide</div>
+            <h1>No barcode result? Read the ingredient list directly.</h1>
+            <p class="lede">Barcode databases are convenient, but they do not contain every imported food, specialty product, new formulation, or small brand. The printed ingredient list is still available—and a clear photo can make it easier to inspect.</p>
+
+            <h2>Why a barcode lookup may come up empty</h2>
+            <p>A barcode identifies a product; it does not contain the ingredient list itself. An app must match that code to a database record, and the record may be missing, incomplete, in another language, or out of date. Packaging can also change before a database entry does.</p>
+
+            <h2>A five-step no-barcode workflow</h2>
+            <ol>
+                <li><strong>Find the complete ingredient panel.</strong> Do not substitute marketing claims from the front of the package.</li>
+                <li><strong>Flatten the package when possible.</strong> Curves, glare, folds, and tiny type can reduce OCR accuracy.</li>
+                <li><strong>Fill the camera frame with the text.</strong> Keep the label sharp and evenly lit.</li>
+                <li><strong>Review the recognized text.</strong> Compare spelling and line breaks with the original package before interpreting the result.</li>
+                <li><strong>Use references as a starting point.</strong> Check the current label and manufacturer information whenever accuracy matters.</li>
+            </ol>
+
+            <div class="callout"><strong>A useful distinction:</strong> a watchlist match means visible label text matched a term you chose. It does not mean the product has been certified as safe, unsafe, healthy, or suitable for you.</div>
+
+            <h2>How Ingredio fits this workflow</h2>
+            <p>Ingredio lets you photograph a printed ingredient list without requiring a barcode. It structures the recognized terms, provides plain-language references, and highlights text matching your personal watchlist. The original recognized text remains available for checking.</p>
+
+            <h2>When not to rely on OCR</h2>
+            <p>Do not use an OCR result as the only source for allergy, intolerance, medical, or other high-consequence decisions. An app cannot detect undeclared ingredients or manufacturing cross-contact, and no OCR system is error-free. Use the complete current package label, contact the manufacturer where appropriate, and seek qualified professional advice for medical questions.</p>
+
+            <a class="cta" href="https://apps.apple.com/app/id6804337307">Scan a printed label with Ingredio</a>
+            <p><small>Ingredio is an informational label-reading tool. OCR and reference data may contain errors; always verify the complete package label.</small></p>
+        </article>
+    </main>
+    <footer class="wrap">
+        <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="mailto:ericopcalvin@outlook.com">Contact</a>
+    </footer>
+</body>
+</html>
