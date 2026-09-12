@@ -28,6 +28,9 @@
         .cta { display: inline-block; margin-top: 20px; padding: 13px 20px; color: white; background: var(--green); border-radius: 11px; font-weight: 700; text-decoration: none; }
         footer { padding: 28px 0 44px; color: var(--muted); border-top: 1px solid var(--line); font-size: 14px; }
     </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to build a personal ingredient watchlist","description":"A three-step workflow for matching personally selected terms against visible ingredient-label text.","step":[{"@type":"HowToStep","name":"Scan the complete ingredient list"},{"@type":"HowToStep","name":"Review highlighted text matches"},{"@type":"HowToStep","name":"Refine the watchlist"}]}
+    </script>
 </head>
 <body>
     <header class="wrap"><nav><a href="./">← Ingredio</a></nav></header>
@@ -51,6 +54,15 @@
             </ol>
 
             <div class="callout"><strong>Important:</strong> a missing match does not prove that a product lacks a substance. OCR can miss text, labels can change, and undeclared ingredients or cross-contact are outside the app’s capabilities.</div>
+
+            <nav aria-label="Related guides">
+                <h2>Continue reading</h2>
+                <ul>
+                    <li><a href="no-barcode-ingredient-scanner.html">Read a label when barcode lookup has no result</a></li>
+                    <li><a href="ingredient-label-ocr-tips.html">Take a clearer ingredient-label photo</a></li>
+                    <li><a href="compare-food-ingredient-lists.html">Compare two ingredient lists</a></li>
+                </ul>
+            </nav>
 
             <a class="cta" href="https://apps.apple.com/us/app/ingredio-food-scanner/id6804337307">Create your watchlist in Ingredio</a>
             <p><small>Always verify the complete current package label. Seek qualified professional advice for medical or allergy-related decisions.</small></p>
