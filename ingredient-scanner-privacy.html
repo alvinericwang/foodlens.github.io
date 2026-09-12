@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-itunes-app" content="app-id=6804337307">
+    <title>Ingredient Scanner Privacy: How Ingredio Handles a Scan</title>
+    <meta name="description" content="A plain-language explanation of what stays on your iPhone, what Ingredio sends for processing, when a label image may be sent, and what is not used for tracking.">
+    <link rel="canonical" href="https://alvinericwang.github.io/foodlens.github.io/ingredient-scanner-privacy.html">
+    <meta property="og:title" content="Ingredient Scanner Privacy: How Ingredio Handles a Scan">
+    <meta property="og:description" content="See the data path for OCR text, label images, Watchlist terms, scan history, accounts, and subscriptions in Ingredio.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://alvinericwang.github.io/foodlens.github.io/ingredient-scanner-privacy.html">
+    <style>
+        :root { --ink: #17211b; --muted: #56635b; --green: #16794b; --soft: #eef7f1; --line: #dce8df; --white: #fff; }
+        * { box-sizing: border-box; }
+        body { margin: 0; color: var(--ink); background: #fbfdfb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.72; }
+        a { color: #0d5735; }
+        .wrap { width: min(820px, calc(100% - 40px)); margin: 0 auto; }
+        nav { padding: 22px 0; }
+        nav a { font-weight: 750; text-decoration: none; }
+        article { padding: 54px 0 70px; }
+        .eyebrow { color: var(--green); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+        h1 { margin: 12px 0 18px; font-size: clamp(38px, 7vw, 62px); line-height: 1.08; letter-spacing: -.035em; }
+        h2 { margin: 0 0 8px; font-size: 21px; line-height: 1.3; }
+        .lede { color: var(--muted); font-size: 20px; }
+        .flow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0; }
+        .card { padding: 22px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; }
+        .step { color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+        .answer { padding: 25px 0; border-bottom: 1px solid var(--line); }
+        .answer p { margin-bottom: 0; }
+        .callout { margin: 30px 0; padding: 20px 22px; background: var(--soft); border-left: 4px solid var(--green); border-radius: 8px; }
+        .cta { display: inline-block; margin: 10px 8px 0 0; padding: 13px 20px; color: white; background: var(--green); border-radius: 11px; font-weight: 700; text-decoration: none; }
+        .cta.secondary { color: #0d5735; background: var(--soft); border: 1px solid var(--line); }
+        footer { padding: 28px 0 44px; color: var(--muted); border-top: 1px solid var(--line); font-size: 14px; }
+        @media (max-width: 680px) { .flow { grid-template-columns: 1fr; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Does Ingredio upload every label photo?","acceptedAnswer":{"@type":"Answer","text":"No. OCR begins on the device. Ingredio may send a compressed label image for image-assisted processing only when on-device OCR confidence is very low."}},
+        {"@type":"Question","name":"Are personal Watchlist terms sent with a scan?","acceptedAnswer":{"@type":"Answer","text":"No. Personal Watchlist keywords are not included in the ingredient-processing request. Watchlist matching occurs in the app."}},
+        {"@type":"Question","name":"Where is scan history stored?","acceptedAnswer":{"@type":"Answer","text":"Scan history, saved product labels, scan images, Watchlist choices, and results are stored locally on the device until deleted or the app is uninstalled, subject to Apple device and backup behavior."}},
+        {"@type":"Question","name":"Does Ingredio use advertising tracking?","acceptedAnswer":{"@type":"Answer","text":"No. Ingredio does not use advertising SDKs, cross-app tracking, or third-party product-analytics SDKs, and does not share scan content for advertising."}},
+        {"@type":"Question","name":"Can an Ingredio account be deleted?","acceptedAnswer":{"@type":"Answer","text":"Yes. Account deletion is available in Settings. The account is signed out and marked for deletion, with a disclosed grace period of up to 30 days before associated server records are deleted."}}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="wrap"><nav><a href="./">← Ingredio</a></nav></header>
+    <main class="wrap">
+        <article>
+            <div class="eyebrow">Plain-language privacy summary</div>
+            <h1>What happens when you scan an ingredient label?</h1>
+            <p class="lede">Ingredio needs enough information to turn visible package text into a structured result. This page explains the path in everyday language; the full Privacy Policy remains the controlling disclosure.</p>
+
+            <div class="flow">
+                <section class="card"><div class="step">1 · On your device</div><h2>OCR starts locally</h2><p>Your iPhone first attempts to recognize the text in the label photo.</p></section>
+                <section class="card"><div class="step">2 · For processing</div><h2>Recognized text is sent</h2><p>The recognized text and selected display language are sent to Ingredio’s service to structure the result and provide references.</p></section>
+                <section class="card"><div class="step">3 · Low-confidence fallback</div><h2>A compressed image may be sent</h2><p>This happens only when on-device OCR confidence is very low and image-assisted processing is needed.</p></section>
+                <section class="card"><div class="step">4 · Back on your device</div><h2>Your Watchlist is matched locally</h2><p>Personal Watchlist keywords are not included in the ingredient-processing request.</p></section>
+            </div>
+
+            <section class="answer">
+                <h2>Does Ingredio upload every label photo?</h2>
+                <p>No. OCR begins on your device. A compressed label image may be sent for image-assisted processing only when on-device OCR confidence is very low.</p>
+            </section>
+
+            <section class="answer">
+                <h2>What may be sent for a barcode scan?</h2>
+                <p>If a barcode is detected, the app may query Open Food Facts and send the returned product name, ingredient list, nutrition, and reference fields to Ingredio’s processing service as context.</p>
+            </section>
+
+            <section class="answer">
+                <h2>Where is scan history stored?</h2>
+                <p>Scan history, saved product labels, scan images, Watchlist choices, and results are stored locally on your device. The application database does not persist OCR text, barcode context, or a label image after the processing request completes.</p>
+            </section>
+
+            <section class="answer">
+                <h2>Does Ingredio use advertising tracking?</h2>
+                <p>No. Ingredio does not use advertising SDKs, cross-app tracking, or third-party product-analytics SDKs, and does not sell personal information or share scan content for advertising.</p>
+            </section>
+
+            <section class="answer">
+                <h2>What account and service data is retained?</h2>
+                <p>Ingredio retains the account identifier, optional email address, authentication and device/session information, subscription state where applicable, and per-account usage counters needed for app functionality, service security, and abuse prevention.</p>
+            </section>
+
+            <section class="answer">
+                <h2>Can I delete my account?</h2>
+                <p>Yes. Use Settings → Delete Account. You are signed out and the account is marked for deletion. A grace period of up to 30 days is used to prevent quota abuse and allow restoration if you sign in again; after that period, associated server database records are deleted as described in the Privacy Policy.</p>
+            </section>
+
+            <div class="callout"><strong>Important context:</strong> Azure, Azure OpenAI, Apple, Open Food Facts, and network operators may process the information needed to provide their parts of the service under their applicable terms and Ingredio’s service configuration.</div>
+
+            <a class="cta" href="privacy.html">Read the full Privacy Policy</a>
+            <a class="cta secondary" href="https://apps.apple.com/app/id6804337307">View Ingredio on the App Store</a>
+        </article>
+    </main>
+    <footer class="wrap">
+        <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="mailto:ericopcalvin@outlook.com">Contact</a>
+    </footer>
+</body>
+</html>
