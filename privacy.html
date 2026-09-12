@@ -17,59 +17,70 @@
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective Date: August 23, 2026</p>
+    <p class="meta">Effective Date: September 12, 2026</p>
 
-    <p>Ingredio ("the App") is developed by Yingying Zhu ("we", "us", or "our"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights.</p>
+    <p>Ingredio ("the App") is developed by Yingying Zhu ("we", "us", or "our"). This Privacy Policy explains the information processed when you use Ingredio, why it is processed, and the choices available to you.</p>
 
-    <h2>1. Information We Collect</h2>
+    <h2>1. Information We Process</h2>
 
-    <p><strong>Account Information (Sign in with Apple)</strong></p>
-    <p>Ingredio uses Sign in with Apple to create your account. When you sign in, we receive a stable, app-specific identifier from Apple and, if you choose to share it, an email address (which may be Apple's private relay address). We use this identifier to maintain your account, apply your subscription entitlements across your devices, and enforce fair-use limits. We do not receive your Apple password or your real Apple ID.</p>
+    <p><strong>Account Information</strong></p>
+    <p>Ingredio uses Sign in with Apple. We receive a stable, app-specific Apple account identifier and, if you choose to share it, an email address that may be an Apple private relay address. We also process authentication tokens. We do not receive your Apple password or your Apple ID credentials.</p>
+
+    <p><strong>Device and Service Information</strong></p>
+    <p>The App sends an app-scoped device identifier (Apple's identifier for vendor) and platform value when creating or refreshing a session. We use these for session management, service security, and abuse prevention. Operational server logs may include an IP address, the app-scoped device identifier, request path, response status, and timing information.</p>
+
+    <p><strong>Ingredient-Label Content</strong></p>
+    <p>The App first performs optical character recognition (OCR) on your device. To structure the result and provide ingredient references, it sends the recognized label text and your selected display language to our server. For barcode scans, the App may also send product name, ingredient-list, nutrition, and reference fields returned by Open Food Facts. When on-device OCR confidence is very low, the App may send a compressed copy of the label image for image-assisted processing. Your personal watchlist keywords are not included in this processing request; watchlist matching occurs in the App.</p>
+
+    <p><strong>Scan History and Preferences</strong></p>
+    <p>Scan history, saved product labels, scan images, watchlist choices, and results are stored locally on your device. Scan content is transmitted only when you initiate processing as described above.</p>
 
     <p><strong>Usage Counters</strong></p>
-    <p>To operate the service fairly and prevent abuse, we keep counters of how many scans your account performs (for example, per-day and per-minute counts). These counters are tied to your account identifier and are used only for rate limiting and applying free/subscription quotas.</p>
-
-    <p><strong>Images You Scan</strong></p>
-    <p>When you scan a product label, the image is sent to our server for ingredient analysis. We do not permanently store your images on our servers. Images are processed in real-time and discarded after analysis is complete.</p>
-
-    <p><strong>Scan History</strong></p>
-    <p>Your scan history (product names, ingredients, and analysis results) is stored locally on your device. This data is never uploaded to our servers unless you explicitly initiate a scan.</p>
+    <p>We retain per-account request and token-usage counters, including daily and short-window totals, to operate quotas, prevent abuse, and protect service capacity. These counters do not contain the label text or image.</p>
 
     <p><strong>Purchase Information</strong></p>
-    <p>Subscriptions are processed entirely by Apple through StoreKit. We do not collect or store any payment information such as credit card numbers or billing addresses. We only receive confirmation of your subscription status from Apple, which we associate with your account to unlock premium features.</p>
+    <p>Subscriptions are processed by Apple through StoreKit. The App receives verified entitlement and transaction status needed to unlock features. We do not receive your payment-card number or billing address.</p>
 
-    <h2>2. Information We Do Not Collect</h2>
+    <h2>2. How We Use Information</h2>
     <ul>
-        <li>We do not collect your name or your real Apple ID</li>
-        <li>We do not use analytics or tracking SDKs</li>
-        <li>We do not collect device identifiers (IDFA) or use advertising frameworks</li>
-        <li>We do not track your location</li>
-        <li>We do not share any data with third parties for advertising purposes</li>
+        <li>Authenticate accounts and maintain sessions</li>
+        <li>Structure visible ingredient-label text, provide ingredient reference information, and match visible text against the watchlist you choose</li>
+        <li>Enable subscription features and restore purchases</li>
+        <li>Apply usage limits, prevent abuse, investigate failures, and protect the service</li>
+        <li>Respond to support, privacy, or account-deletion requests</li>
     </ul>
+    <p>Ingredio does not determine whether a product is safe, healthy, or suitable for an individual. OCR and reference data may contain errors; always verify the complete product label yourself.</p>
 
-    <h2>3. How We Use Your Information</h2>
-    <p>We use the data described above to: authenticate your account via Sign in with Apple; analyze product ingredient images to provide ingredient information, health scores, and safety assessments; apply your subscription entitlements; and enforce fair-use rate limits. Image analysis occurs in real-time and scanned images are not retained on our servers.</p>
+    <h2>3. Service Providers</h2>
+    <p><strong>Apple</strong> — Apple provides Sign in with Apple, StoreKit subscriptions, and App Store distribution. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+    <p><strong>Microsoft Azure and Azure OpenAI</strong> — Our application service is hosted on Microsoft Azure. The recognized label text, optional barcode context, and a compressed label image only when OCR confidence is very low are processed through Azure OpenAI to produce a structured result. We do not send your personal watchlist to Azure OpenAI. Microsoft processes this content on our behalf under our service configuration and its applicable terms. See the <a href="https://privacy.microsoft.com/privacystatement">Microsoft Privacy Statement</a>.</p>
+    <p><strong>Open Food Facts</strong> — When a barcode is detected, the App may query the Open Food Facts public database. The barcode and standard network information needed to make the request are sent to that service. See the <a href="https://world.openfoodfacts.org/privacy">Open Food Facts privacy information</a>.</p>
 
-    <h2>4. Third-Party Services</h2>
-    <p><strong>Sign in with Apple</strong> — Authentication is handled by Apple. We receive only an app-specific identifier and, optionally, a relay email. Please refer to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a> for details.</p>
-    <p><strong>Open Food Facts</strong> — We query the Open Food Facts public database to retrieve product information by barcode. This is a public, open-source database and no personal data is shared with them.</p>
-    <p><strong>Apple StoreKit</strong> — Subscription purchases are handled by Apple. Please refer to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a> for details on how Apple handles purchase data.</p>
+    <h2>4. Advertising, Analytics, and Tracking</h2>
+    <p>We do not use advertising SDKs, cross-app tracking, or third-party product-analytics SDKs. We do not sell personal information or share scan content for advertising. The App's internal analytics facade currently records privacy-safe event names only in local diagnostic logs and does not transmit those events to an analytics service.</p>
 
-    <h2>5. Data Storage and Security</h2>
-    <p>Your scan history and preferences are stored locally on your device using standard iOS storage mechanisms. On our servers, we store only your account identifier, subscription tier, and usage counters as described above. Scanned images are never persisted on our servers.</p>
+    <h2>5. Storage and Retention</h2>
+    <p>Your scan history, images, watchlist, and preferences remain on your device until you delete them or uninstall the App. Our application database does not persist the OCR text, barcode context, or label image submitted for a scan after the processing request completes. Processing providers and network operators may handle request content and technical metadata under their applicable terms and our service configuration.</p>
+    <p>Account identifiers, an optional email address, authentication records, device/session information, subscription state where applicable, and usage counters are retained while the account is active. Operational security logs are kept only as reasonably necessary to operate, secure, and troubleshoot the service.</p>
 
-    <h2>6. Children's Privacy</h2>
-    <p>The App is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+    <h2>6. Security</h2>
+    <p>We use transport encryption, authenticated API requests, access controls, and service rate limits. No system can guarantee absolute security, and you should avoid scanning information that is not needed to use the ingredient-label feature.</p>
 
-    <h2>7. Your Rights and Account Deletion</h2>
-    <p>You can delete your scan history at any time from the Settings screen within the App. Uninstalling the App removes all locally stored data.</p>
-    <p>You can also delete your account from within the App (Settings &rarr; Delete Account). When you delete your account, we immediately sign you out and deactivate the account. To prevent abuse (such as repeatedly deleting and recreating accounts to reset free-usage limits), we retain a de-identified account reference and usage counters for up to 30 days. During this grace period, signing in again with the same Apple ID restores your account. After 30 days, your account and all associated server-side data are permanently erased and your Sign in with Apple authorization is revoked. You may also contact us at the email below to request deletion.</p>
+    <h2>7. Children's Privacy</h2>
+    <p>Ingredio is not directed to children under 13, and we do not knowingly collect personal information from children under 13.</p>
 
-    <h2>8. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+    <h2>8. Your Choices and Account Deletion</h2>
+    <p>You can delete local scan history from Settings. Uninstalling the App removes locally stored App data, subject to Apple's device and backup behavior.</p>
+    <p>You can request account deletion in Settings &rarr; Delete Account. We immediately sign you out, revoke active App sessions, and mark the account for deletion. The account identifier, identity binding, optional email, Apple authorization token where available, subscription state, and usage counters may be retained for up to 30 days to prevent quota abuse and permit account restoration if you sign in again during that period. After the period expires, the account and associated server database records are deleted and we attempt to revoke the Sign in with Apple authorization. You may also contact us using the address below.</p>
 
-    <h2>9. Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at:<br>
+    <h2>9. International Processing</h2>
+    <p>Our service providers may process information in the United States or other locations where they operate. Their privacy and security obligations are governed by our service configuration, applicable agreements, and applicable law.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy as the App or its data practices change. We will post the revised policy here with a new effective date.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>For privacy questions or requests, contact:<br>
     <a href="mailto:ericopcalvin@outlook.com">ericopcalvin@outlook.com</a></p>
 </body>
 </html>
