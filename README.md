@@ -1,6 +1,6 @@
 # Ingredio
 
-Ingredio is an iPhone ingredient-label reader for situations where a barcode is missing or a product database has no result. It starts from the printed ingredient list, structures recognized text, provides plain-language references, and shows visible-text matches from a personal watchlist.
+Ingredio is an ingredient-awareness companion for intentional shoppers and households. It helps people build a repeatable label-reading habit: start from the printed ingredient list, understand unfamiliar terms, notice personal Watchlist matches, and keep a label library for later—even when a barcode database has no result.
 
 - [Official Ingredio website](https://alvinericwang.github.io/foodlens.github.io/)
 - [Ingredient scanner FAQ](https://alvinericwang.github.io/foodlens.github.io/ingredient-scanner-faq.html)
