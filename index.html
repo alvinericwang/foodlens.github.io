@@ -29,6 +29,10 @@
         .cta { display: inline-block; padding: 14px 22px; color: var(--white); background: var(--green); border-radius: 12px; font-weight: 700; text-decoration: none; }
         .note { margin-top: 14px; color: var(--muted); font-size: 13px; }
         .belief { max-width: 760px; margin: 0 auto; padding: 30px; background: var(--warm); border-radius: 22px; text-align: center; font-size: clamp(20px, 3vw, 29px); line-height: 1.35; letter-spacing: -.015em; }
+        .identity-check { max-width: 850px; margin: 0 auto; }
+        .identity-check .card { display: flex; gap: 12px; align-items: flex-start; }
+        .identity-check .mark { flex: 0 0 auto; color: var(--green); font-weight: 800; }
+        .center { text-align: center; }
         section { padding: 56px 0; }
         h2 { margin: 0 0 22px; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: -.025em; }
         h3 { margin-top: 0; font-size: 19px; }
@@ -72,6 +76,23 @@
 
         <section class="wrap">
             <p class="belief">Caring about what you bring home can start with one small habit: paying attention to the label in front of you.</p>
+        </section>
+
+        <section class="wrap identity-check">
+            <div class="center">
+                <div class="eyebrow">Does this sound like you?</div>
+                <h2>You already think like a label reader.</h2>
+            </div>
+            <div class="grid">
+                <article class="card"><span class="mark">✓</span><p>You still want to inspect the printed ingredient list when a barcode app has no result.</p></article>
+                <article class="card"><span class="mark">✓</span><p>You pause at unfamiliar ingredient terms instead of relying only on the front of the package.</p></article>
+                <article class="card"><span class="mark">✓</span><p>You want to remember and compare what labels actually say across different shopping trips.</p></article>
+            </div>
+            <div class="center">
+                <p>Ingredio turns those moments into a personal practice: notice, understand, save, and revisit visible label evidence.</p>
+                <a class="cta" href="https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&amp;ct=org_us_web_home_d00&amp;mt=8">Start with one label already at home</a>
+                <p class="note">No universal verdict. Your Watchlist reflects only the terms you choose.</p>
+            </div>
         </section>
 
         <section class="soft">
