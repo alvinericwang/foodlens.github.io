@@ -42,8 +42,10 @@
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 26px 0; }
         .step { padding: 22px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; }
         .step strong { display: block; margin-bottom: 6px; color: var(--deep); }
-        .share-box { margin-top: 36px; padding: 26px; background: var(--warm); border-radius: 18px; }
-        .share-box h2 { margin-top: 0; }
+        .share-box, .reminder-box { margin-top: 36px; padding: 26px; border-radius: 18px; }
+        .share-box { background: var(--warm); }
+        .reminder-box { background: var(--soft); border: 1px solid var(--line); }
+        .share-box h2, .reminder-box h2 { margin-top: 0; }
         .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
         .button { display: inline-block; padding: 13px 20px; color: white; background: var(--green); border: 0; border-radius: 11px; font-weight: 750; text-decoration: none; cursor: pointer; }
         .button.secondary { color: var(--green); background: transparent; border: 1px solid var(--green); }
@@ -72,6 +74,15 @@
             <div class="step"><strong>3 · Return</strong>Come back on another day and revisit what you read instead of starting from zero.</div>
         </div>
 
+        <section class="reminder-box">
+            <h2>Make the second day easy to remember</h2>
+            <p>Add one optional reminder for 48 hours from now. The calendar file is created on this device; Ingredio does not receive your calendar or reminder details.</p>
+            <div class="actions">
+                <button class="button secondary" id="add-reminder" type="button">Add a day-two reminder</button>
+            </div>
+            <p class="status" id="reminder-status" aria-live="polite"></p>
+        </section>
+
         <section class="share-box">
             <h2>Know another label reader?</h2>
             <p>Share the identity, not a feature pitch. The right person will recognize the behavior immediately.</p>
@@ -90,11 +101,50 @@
     <script>
         const shareButton = document.getElementById('share-identity');
         const shareStatus = document.getElementById('share-status');
+        const reminderButton = document.getElementById('add-reminder');
+        const reminderStatus = document.getElementById('reminder-status');
         const shareData = {
             title: 'The Label Reader Practice',
             text: 'I turn the package around. I read what is actually printed, keep my own record, and remember what I read.',
             url: 'https://alvinericwang.github.io/foodlens.github.io/label-reader-practice.html'
         };
+
+        const formatICSDate = (date) => date.toISOString()
+            .replace(/[-:]/g, '')
+            .replace(/\.\d{3}Z$/, 'Z');
+
+        reminderButton.addEventListener('click', () => {
+            const start = new Date(Date.now() + (48 * 60 * 60 * 1000));
+            const end = new Date(start.getTime() + (15 * 60 * 1000));
+            const stamp = new Date();
+            const calendar = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//Ingredio//Label Reader Practice//EN',
+                'CALSCALE:GREGORIAN',
+                'METHOD:PUBLISH',
+                'BEGIN:VEVENT',
+                `UID:ingredio-label-library-${stamp.getTime()}@alvinericwang.github.io`,
+                `DTSTAMP:${formatICSDate(stamp)}`,
+                `DTSTART:${formatICSDate(start)}`,
+                `DTEND:${formatICSDate(end)}`,
+                'SUMMARY:Return to your Label Library',
+                'DESCRIPTION:Choose one real package and add one label to your personal library. Always verify the complete current package label.',
+                'URL:https://alvinericwang.github.io/foodlens.github.io/label-reader-practice.html',
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\r\n');
+            const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
+            const downloadURL = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = downloadURL;
+            link.download = 'ingredio-label-library-reminder.ics';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(downloadURL);
+            reminderStatus.textContent = 'Calendar reminder created for 48 hours from now.';
+        });
 
         shareButton.addEventListener('click', async () => {
             try {
