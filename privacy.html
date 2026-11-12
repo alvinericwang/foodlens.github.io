@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingredio - Privacy Policy</title>
-    <meta name="description" content="Read how Ingredio processes account, ingredient-label, device, subscription, and usage information, including OCR and data-retention practices.">
+    <meta name="description" content="Read how Ingredio processes account, ingredient-label, device, subscription, and content-free usage counters, including OCR, aggregate successful-parse measurement, and retention practices.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1d1d1f; background: #fff; padding: 40px 20px; max-width: 720px; margin: 0 auto; }
@@ -18,7 +18,7 @@
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective Date: September 12, 2026</p>
+    <p class="meta">Effective Date: November 12, 2026</p>
 
     <p>Ingredio ("the App") is developed by Yingying Zhu ("we", "us", or "our"). This Privacy Policy explains the information processed when you use Ingredio, why it is processed, and the choices available to you.</p>
 
@@ -37,7 +37,7 @@
     <p>Scan history, saved product labels, scan images, watchlist choices, and results are stored locally on your device. Scan content is transmitted only when you initiate processing as described above.</p>
 
     <p><strong>Usage Counters</strong></p>
-    <p>We retain per-account request and token-usage counters, including daily and short-window totals, to operate quotas, prevent abuse, and protect service capacity. These counters do not contain the label text or image.</p>
+    <p>We retain per-account request and token-usage counters, including daily and short-window totals, and a daily count of successfully completed ingredient parses. We use these counters to operate quotas, prevent abuse, protect service capacity, and understand in aggregate whether the core parsing feature is working. These counters do not contain label text, images, product names, barcodes, ingredients, watchlist terms, or advertising identifiers.</p>
 
     <p><strong>Purchase Information</strong></p>
     <p>Subscriptions are processed by Apple through StoreKit. The App receives verified entitlement and transaction status needed to unlock features. We do not receive your payment-card number or billing address.</p>
@@ -47,7 +47,7 @@
         <li>Authenticate accounts and maintain sessions</li>
         <li>Structure visible ingredient-label text, provide ingredient reference information, and match visible text against the watchlist you choose</li>
         <li>Enable subscription features and restore purchases</li>
-        <li>Apply usage limits, prevent abuse, investigate failures, and protect the service</li>
+        <li>Apply usage limits, prevent abuse, investigate failures, protect the service, and measure completed parses in aggregate</li>
         <li>Respond to support, privacy, or account-deletion requests</li>
     </ul>
     <p>Ingredio does not determine whether a product is safe, healthy, or suitable for an individual. OCR and reference data may contain errors; always verify the complete product label yourself.</p>
@@ -58,7 +58,7 @@
     <p><strong>Open Food Facts</strong> — When a barcode is detected, the App may query the Open Food Facts public database. The barcode and standard network information needed to make the request are sent to that service. See the <a href="https://world.openfoodfacts.org/privacy">Open Food Facts privacy information</a>.</p>
 
     <h2>4. Advertising, Analytics, and Tracking</h2>
-    <p>We do not use advertising SDKs, cross-app tracking, or third-party product-analytics SDKs. We do not sell personal information or share scan content for advertising. The App's internal analytics facade currently records privacy-safe event names only in local diagnostic logs and does not transmit those events to an analytics service.</p>
+    <p>We do not use advertising SDKs, cross-app tracking, or third-party product-analytics SDKs. We do not sell personal information or share scan content for advertising. We use the content-free daily successful-parse counter described above only as aggregated first-party product analytics. The App's internal analytics facade currently records privacy-safe event names only in local diagnostic logs and does not transmit those events to an analytics service.</p>
 
     <h2>5. Storage and Retention</h2>
     <p>Your scan history, images, watchlist, and preferences remain on your device until you delete them or uninstall the App. Our application database does not persist the OCR text, barcode context, or label image submitted for a scan after the processing request completes. Processing providers and network operators may handle request content and technical metadata under their applicable terms and our service configuration.</p>
