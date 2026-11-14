@@ -42,17 +42,23 @@
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 26px 0; }
         .step { padding: 22px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; }
         .step strong { display: block; margin-bottom: 6px; color: var(--deep); }
-        .share-box, .reminder-box { margin-top: 36px; padding: 26px; border-radius: 18px; }
+        .tracker-box, .share-box, .reminder-box { margin-top: 36px; padding: 26px; border-radius: 18px; }
+        .tracker-box { background: var(--white); border: 1px solid var(--line); }
         .share-box { background: var(--warm); }
         .reminder-box { background: var(--soft); border: 1px solid var(--line); }
-        .share-box h2, .reminder-box h2 { margin-top: 0; }
+        .tracker-box h2, .share-box h2, .reminder-box h2 { margin-top: 0; }
+        .progress { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; }
+        .progress-item { padding: 16px; background: var(--soft); border-radius: 12px; }
+        .progress-item strong { display: block; color: var(--deep); font-size: 24px; }
+        .completion { margin-top: 18px; padding: 18px; background: var(--warm); border-radius: 12px; }
+        [hidden] { display: none !important; }
         .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
         .button { display: inline-block; padding: 13px 20px; color: white; background: var(--green); border: 0; border-radius: 11px; font-weight: 750; text-decoration: none; cursor: pointer; }
         .button.secondary { color: var(--green); background: transparent; border: 1px solid var(--green); }
         .status { min-height: 1.7em; margin: 12px 0 0; color: var(--muted); font-size: 14px; }
         .boundary { margin-top: 34px; padding: 20px 22px; background: var(--soft); border-left: 4px solid var(--green); border-radius: 8px; }
         footer { padding: 28px 0 44px; color: var(--muted); border-top: 1px solid var(--line); font-size: 14px; }
-        @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } }
+        @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } .progress { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -73,6 +79,27 @@
             <div class="step"><strong>2 · Record</strong>Save the visible label text, verify it against the package, and notice only the terms you choose.</div>
             <div class="step"><strong>3 · Return</strong>Come back on another day and revisit what you read instead of starting from zero.</div>
         </div>
+
+        <section class="tracker-box">
+            <h2>Keep the practice private on this device</h2>
+            <p>Record only that you read a label—never the product, ingredient list, or reason. Progress stays in this browser and is not sent to Ingredio.</p>
+            <div class="progress" aria-label="Label Reader practice progress">
+                <div class="progress-item"><strong id="label-count">0 of 3</strong>labels recorded</div>
+                <div class="progress-item"><strong id="day-count">0 of 2</strong>different days</div>
+            </div>
+            <div class="actions">
+                <button class="button" id="record-label" type="button">Record one label today</button>
+            </div>
+            <p class="status" id="tracker-status" aria-live="polite">No label details are collected.</p>
+            <div class="completion" id="practice-complete" hidden>
+                <strong>You completed the three-label, two-day practice.</strong>
+                <p>You now have enough real experience to decide whether a personal Label Library is useful—and to give specific feedback.</p>
+                <div class="actions">
+                    <a class="button" href="label-reader-design-partners.html">Share what happened</a>
+                    <a class="button secondary" href="https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&amp;ct=org_us_web_home_d00&amp;mt=8">Continue in Ingredio</a>
+                </div>
+            </div>
+        </section>
 
         <section class="reminder-box">
             <h2>Make the second day easy to remember</h2>
@@ -103,6 +130,12 @@
         const shareStatus = document.getElementById('share-status');
         const reminderButton = document.getElementById('add-reminder');
         const reminderStatus = document.getElementById('reminder-status');
+        const recordLabelButton = document.getElementById('record-label');
+        const labelCount = document.getElementById('label-count');
+        const dayCount = document.getElementById('day-count');
+        const trackerStatus = document.getElementById('tracker-status');
+        const practiceComplete = document.getElementById('practice-complete');
+        const practiceKey = 'ingredio-label-reader-practice-v1';
         const shareData = {
             title: 'The Label Reader Practice',
             text: 'I turn the package around. I read what is actually printed, keep my own record, and remember what I read.',
@@ -112,6 +145,57 @@
         const formatICSDate = (date) => date.toISOString()
             .replace(/[-:]/g, '')
             .replace(/\.\d{3}Z$/, 'Z');
+
+        const localDateKey = (date = new Date()) => [
+            date.getFullYear(),
+            String(date.getMonth() + 1).padStart(2, '0'),
+            String(date.getDate()).padStart(2, '0')
+        ].join('-');
+
+        const loadPractice = () => {
+            try {
+                const saved = JSON.parse(localStorage.getItem(practiceKey));
+                return {
+                    labels: Math.min(3, Math.max(0, Number(saved?.labels) || 0)),
+                    days: Array.isArray(saved?.days) ? [...new Set(saved.days.filter(day => /^\d{4}-\d{2}-\d{2}$/.test(day)))].slice(0, 2) : []
+                };
+            } catch (error) {
+                return { labels: 0, days: [] };
+            }
+        };
+
+        let practice = loadPractice();
+
+        const renderPractice = () => {
+            const complete = practice.labels >= 3 && practice.days.length >= 2;
+            labelCount.textContent = `${practice.labels} of 3`;
+            dayCount.textContent = `${practice.days.length} of 2`;
+            practiceComplete.hidden = !complete;
+            recordLabelButton.disabled = complete;
+            recordLabelButton.textContent = practice.labels >= 3 && !complete
+                ? 'Record today’s return'
+                : complete ? 'Practice complete' : 'Record one label today';
+        };
+
+        recordLabelButton.addEventListener('click', () => {
+            const today = localDateKey();
+            if (practice.labels < 3) practice.labels += 1;
+            if (!practice.days.includes(today)) practice.days.push(today);
+            practice.days = practice.days.slice(0, 2);
+            try {
+                localStorage.setItem(practiceKey, JSON.stringify(practice));
+                trackerStatus.textContent = practice.labels >= 3 && practice.days.length < 2
+                    ? 'Three labels recorded. Return on another day to complete the practice.'
+                    : practice.labels >= 3 && practice.days.length >= 2
+                        ? 'Practice complete. Your progress remains only in this browser.'
+                        : 'Progress saved only in this browser.';
+            } catch (error) {
+                trackerStatus.textContent = 'Progress is shown for this visit, but this browser did not allow local storage.';
+            }
+            renderPractice();
+        });
+
+        renderPractice();
 
         reminderButton.addEventListener('click', () => {
             const start = new Date(Date.now() + (48 * 60 * 60 * 1000));
