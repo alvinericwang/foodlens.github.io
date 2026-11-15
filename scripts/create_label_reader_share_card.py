@@ -7,6 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "assets" / "label-reader-practice-social.png"
+DESIGN_PARTNER_OUTPUT = ROOT / "assets" / "label-reader-design-partners-social.png"
 
 
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
@@ -62,6 +63,31 @@ def main() -> None:
     image.save(OUTPUT, format="PNG", optimize=True)
     print(f"created={OUTPUT}")
     print(f"size={image.size[0]}x{image.size[1]}")
+
+    partner = Image.new("RGB", (width, height), "#f7f3e8")
+    partner_draw = ImageDraw.Draw(partner)
+    partner_draw.rounded_rectangle((48, 48, 1152, 582), radius=38, fill="#0d5735")
+    partner_draw.rounded_rectangle((94, 88, 520, 140), radius=26, fill="#dff4e7")
+    partner_draw.text((120, 102), "LABEL READER DESIGN PARTNERS", font=font(18, True), fill="#0d5735")
+
+    partner_draw.text((94, 186), "Do you turn the", font=font(55, True), fill="#ffffff")
+    partner_draw.text((94, 254), "package around?", font=font(55, True), fill="#9ee0b8")
+    partner_draw.text((98, 363), "Try three real labels across two days.", font=font(27), fill="#e2f1e7")
+    partner_draw.text((98, 405), "Help shape a personal Label Library", font=font(27), fill="#e2f1e7")
+    partner_draw.text((98, 447), "worth returning to.", font=font(27), fill="#e2f1e7")
+
+    partner_draw.rounded_rectangle((874, 176, 1052, 354), radius=28, outline="#9ee0b8", width=5)
+    partner_draw.rounded_rectangle((906, 208, 1020, 322), radius=16, fill="#16794b")
+    partner_draw.line((928, 242, 998, 242), fill="#dff4e7", width=7)
+    partner_draw.line((928, 269, 988, 269), fill="#dff4e7", width=7)
+    partner_draw.line((928, 296, 994, 296), fill="#dff4e7", width=7)
+
+    partner_draw.text((98, 526), "Ingredio", font=font(23, True), fill="#ffffff")
+    partner_draw.text((216, 526), "·  Remember what you read.", font=font(23), fill="#dff4e7")
+
+    partner.save(DESIGN_PARTNER_OUTPUT, format="PNG", optimize=True)
+    print(f"created={DESIGN_PARTNER_OUTPUT}")
+    print(f"size={partner.size[0]}x{partner.size[1]}")
 
 
 if __name__ == "__main__":
