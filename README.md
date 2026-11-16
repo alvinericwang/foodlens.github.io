@@ -3,6 +3,8 @@
 Ingredio is the personal Label Library for people who turn the package around. It reinforces an existing label-reading identity by helping people remember what they read, shape a deliberate Watchlist, and revisit or compare visible package evidence across shopping days. Scanning without a barcode is a supporting workflow, not the product definition.
 
 - [Official Ingredio website](https://alvinericwang.github.io/foodlens.github.io/)
+- [Start your Label Library on the App Store](https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&ct=org_us_web_home_d00&mt=8)
+- [Try the private three-label, two-day practice](https://alvinericwang.github.io/foodlens.github.io/label-reader-practice.html)
 - [Label-reader design partner invitation](https://alvinericwang.github.io/foodlens.github.io/label-reader-design-partners.html)
 - [Ingredient scanner FAQ](https://alvinericwang.github.io/foodlens.github.io/ingredient-scanner-faq.html)
 - [Privacy policy](https://alvinericwang.github.io/foodlens.github.io/privacy.html)
