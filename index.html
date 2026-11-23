@@ -42,6 +42,10 @@
         .card { padding: 26px; background: var(--white); border: 1px solid var(--line); border-radius: 18px; }
         .step { color: var(--green); font-size: 13px; font-weight: 800; text-transform: uppercase; }
         .split { display: grid; grid-template-columns: 1fr 1fr; gap: 38px; align-items: start; }
+        .product-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
+        .product-shot { margin: 0; }
+        .product-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 18px 44px rgba(23, 33, 27, .1); }
+        .product-shot figcaption { margin-top: 13px; color: var(--muted); font-size: 14px; }
         .soft { background: var(--soft); }
         ul { padding-left: 20px; }
         li { margin: 8px 0; }
@@ -49,7 +53,7 @@
         summary { cursor: pointer; font-weight: 700; }
         footer { padding: 34px 0 48px; color: var(--muted); border-top: 1px solid var(--line); font-size: 14px; }
         footer a { margin-right: 16px; }
-        @media (max-width: 760px) { .grid, .split { grid-template-columns: 1fr; } .hero { padding-top: 54px; } .navlinks { gap: 11px; } }
+        @media (max-width: 760px) { .grid, .split { grid-template-columns: 1fr; } .product-gallery { grid-template-columns: repeat(3, 78vw); overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 20px 22px; margin-left: -20px; margin-right: -20px; } .product-shot { scroll-snap-align: center; } .hero { padding-top: 54px; } .navlinks { gap: 11px; } }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Ingredio","applicationCategory":"FoodApplication","operatingSystem":"iOS","description":"An ingredient label reader and personal Label Library for people who turn the package around, helping them remember, revisit, and compare the food labels they read.","url":"https://alvinericwang.github.io/foodlens.github.io/","downloadUrl":"https://apps.apple.com/app/apple-store/id6804337307?pt=129257201\u0026ct=org_us_web_home_d00\u0026mt=8"}
@@ -105,6 +109,32 @@
                     <article class="card"><div class="step">02 · Remember</div><h3>Keep the label evidence</h3><p>Save what you read so the next shopping trip does not begin from zero.</p></article>
                     <article class="card"><div class="step">03 · Practice</div><h3>Revisit and compare</h3><p>Return when another package creates a question and compare visible ingredient lists without a universal verdict.</p></article>
                 </div>
+            </div>
+        </section>
+
+        <section class="wrap" aria-labelledby="inside-ingredio-title">
+            <div class="center">
+                <div class="eyebrow">Inside Ingredio</div>
+                <h2 id="inside-ingredio-title">See the practice—not just the promise</h2>
+                <p class="lede">Real product screens show how a printed label becomes visible evidence, a personal Watchlist, and a Label Library you can revisit.</p>
+            </div>
+            <div class="product-gallery">
+                <figure class="product-shot">
+                    <img src="assets/app/label-library-home.png" width="414" height="900" loading="lazy" decoding="async" alt="Ingredio home screen with the Remember what you read message and Read This Label button">
+                    <figcaption><strong>Start with a real package.</strong> The label-reading practice leads; scanning is the input.</figcaption>
+                </figure>
+                <figure class="product-shot">
+                    <img src="assets/app/label-library-result.png" width="414" height="900" loading="lazy" decoding="async" alt="Ingredio result screen showing recognized text, user-selected Watchlist matches, and Revisit and Set Aside actions">
+                    <figcaption><strong>Keep the evidence visible.</strong> Review recognized text and the literal terms your Watchlist matched.</figcaption>
+                </figure>
+                <figure class="product-shot">
+                    <img src="assets/app/personal-watchlist.png" width="414" height="900" loading="lazy" decoding="async" alt="Ingredio Watchlist screen containing terms selected by the user">
+                    <figcaption><strong>Choose what you notice.</strong> The Watchlist reflects terms you add, not a universal verdict.</figcaption>
+                </figure>
+            </div>
+            <div class="center">
+                <a class="cta" href="https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&amp;ct=org_us_web_home_d00&amp;mt=8">Start your Label Library</a>
+                <p class="note">Screens show example labels and user-chosen terms. Always verify the complete current package label.</p>
             </div>
         </section>
 
