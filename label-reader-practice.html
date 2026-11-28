@@ -96,7 +96,7 @@
                 <p>You now have enough real experience to decide whether a personal Label Library is useful—and to give specific feedback.</p>
                 <div class="actions">
                     <a class="button" href="label-reader-design-partners.html">Share what happened</a>
-                    <a class="button secondary" href="https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&amp;ct=org_us_web_home_d00&amp;mt=8">Continue in Ingredio</a>
+                    <a class="button secondary" data-app-store-cta href="https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&amp;ct=org_us_web_home_d00&amp;mt=8">Continue in Ingredio</a>
                 </div>
             </div>
         </section>
@@ -115,7 +115,7 @@
             <p>Share the identity, not a feature pitch. The right person will recognize the behavior immediately.</p>
             <div class="actions">
                 <button class="button" id="share-identity" type="button">Share the Label Reader practice</button>
-                <a class="button secondary" href="https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&amp;ct=org_us_web_home_d00&amp;mt=8">Start your Label Library</a>
+                <a class="button secondary" data-app-store-cta href="https://apps.apple.com/app/apple-store/id6804337307?pt=129257201&amp;ct=org_us_web_home_d00&amp;mt=8">Start your Label Library</a>
             </div>
             <p class="status" id="share-status" aria-live="polite"></p>
         </section>
@@ -136,6 +136,24 @@
         const trackerStatus = document.getElementById('tracker-status');
         const practiceComplete = document.getElementById('practice-complete');
         const practiceKey = 'ingredio-label-reader-practice-v1';
+        const sourceCampaigns = {
+            nobarcode: 'org_us_web_nobarcode_d03',
+            ocr: 'org_us_web_trust_d09_ocr',
+            watchlist: 'org_us_web_watch_d11_workflow',
+            compare: 'org_us_web_compare_d15_lists',
+            'no-score': 'org_us_web_watch_d13_no_score',
+            faq: 'org_us_web_faq_d03',
+            imported: 'org_us_web_imported_d18',
+            privacy: 'org_us_web_privacy_d23'
+        };
+        const sourceCampaign = sourceCampaigns[new URLSearchParams(window.location.search).get('src')];
+        if (sourceCampaign) {
+            document.querySelectorAll('[data-app-store-cta]').forEach((link) => {
+                const url = new URL(link.href);
+                url.searchParams.set('ct', sourceCampaign);
+                link.href = url.toString();
+            });
+        }
         const shareData = {
             title: 'The Label Reader Practice',
             text: 'I turn the package around. I read what is actually printed, keep my own record, and remember what I read.',
